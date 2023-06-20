@@ -50,6 +50,7 @@ class Shade:
             self.is_moving = False if shutter_xml.find('fahrt').text == '0' else True
             self.position = int(shutter_xml.find('position').text) / 2
             self.state_last_updated = datetime.now()
+            logger.info("Response: {}".format(ElemTree.tostring(shutter_xml, encoding='utf8')))
             return True
         except AttributeError:
             logger.warning("Couldn't update shade {} in room {}. Invalid response from server: {}"
