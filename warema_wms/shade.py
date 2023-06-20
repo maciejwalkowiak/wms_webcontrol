@@ -51,12 +51,12 @@ class Shade:
             self.state_last_updated = datetime.now()
             return True
         except AttributeError:
-            logger.warning("Couldn't update shade {} in room {}. Invalid response from server."
-                           .format(self.get_channel_name(), self.get_room_name()))
+            logger.warning("Couldn't update shade {} in room {}. Invalid response from server: {}"
+                           .format(self.get_channel_name(), self.get_room_name(), shutter_xml))
             return False
         except Exception:
-            logger.exception("Unexpected exception while updating shade {} in room {}."
-                             .format(self.get_channel_name(), self.get_room_name()))
+            logger.exception("Unexpected exception while updating shade {} in room {}: {}"
+                             .format(self.get_channel_name(), self.get_room_name(), shutter_xml))
             return False
 
     def get_shade_state(self, force_update=False):
