@@ -53,11 +53,11 @@ class Shade:
             return True
         except AttributeError:
             logger.warning("Couldn't update shade {} in room {}. Invalid response from server: {}"
-                           .format(self.get_channel_name(), self.get_room_name(), ElementTree.tostring(shutter_xml, encoding='utf8')))
+                           .format(self.get_channel_name(), self.get_room_name(), ElemTree.tostring(shutter_xml, encoding='utf8')))
             return False
         except Exception:
             logger.exception("Unexpected exception while updating shade {} in room {}: {}"
-                             .format(self.get_channel_name(), self.get_room_name(), ElementTree.tostring(shutter_xml, encoding='utf8')))
+                             .format(self.get_channel_name(), self.get_room_name(), ElemTree.tostring(shutter_xml, encoding='utf8')))
             return False
 
     def get_shade_state(self, force_update=False):
